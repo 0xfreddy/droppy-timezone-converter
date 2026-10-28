@@ -48,15 +48,9 @@ and an install into Droppy Playground as tools. Codex registers the server
 once per Mac: `codex mcp add droppykit -- path/to/droppykit/Scripts/droppykit mcp`.
 Run `droppykit agent` again after moving this folder or the SDK checkout.
 
-## Before submitting
+## Store
 
-- Leave `TimezoneConverter.icon` as it is. It is a placeholder for the harness:
-  Jordy designs every Store droplet's icon, and `droppykit submit` leaves it
-  out. Have an idea for yours? Put it in the merge request's Icon concept
-  section.
-- Replace `Assets/Creator.png` with your own square, unrounded mark.
-- Fill in `summary`, `description` and `creator` in `droplet.json`, and
-  write `CHANGELOG.md`.
-- `droppykit submit`: the Store is a repository, one folder per droplet, and
-  this opens the merge request that adds yours. See
-  [Submitting](https://getdroppy.app/docs/droppykit/submitting).
+Published as `timezone-converter` in the [Droplet
+Store](https://gitlab.com/droppyformac1/droplets/-/tree/main/droplets/timezone-converter).
+Updates bump `version` in `droplet.json`, add a `CHANGELOG.md` entry, and
+run `droppykit submit`.
