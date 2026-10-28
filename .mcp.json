@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "droppykit": {
+      "command": "/Users/freddy/.zcode/workspace/19518fb7-31c1-487a-8b74-701e4f1d5314/droppykit/Scripts/droppykit",
+      "args": [
+        "mcp",
+        "--package",
+        "/Users/freddy/.zcode/workspace/19518fb7-31c1-487a-8b74-701e4f1d5314/timezone-converter"
+      ]
+    }
+  }
+}
