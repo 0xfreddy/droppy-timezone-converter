@@ -87,7 +87,7 @@ public final class TimezoneConverterDroplet: NSObject, ObservableObject, Droplet
             ?? TimeZone.current.identifier
         zones = host.preferences.value(forKey: "zones", as: [ZoneEntry].self)
             ?? Self.defaultZones
-        isDotMatrix = host.preferences.value(forKey: "dotMatrix", as: Bool.self) ?? false
+        isDotMatrix = host.preferences.value(forKey: "dotMatrix", as: Bool.self) ?? true
 
         // Open on now, in the source zone: the surface is a world clock until
         // the user moves the time, which is also the most common conversion.
