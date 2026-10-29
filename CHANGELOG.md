@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0] - 2026-10-28
+
+- Dot-matrix theme: a header toggle switches the display surfaces — title,
+  city labels, times, deltas, day badges, the date, and the ruler numbers —
+  to a glowing flip-disc panel face, with each city's time in its part-of-day
+  color. The theme persists. Interaction surfaces (query field, zone editor,
+  buttons) stay in system type.
+
 ## [1.0.0] - 2026-10-28
 
 - First release: one expanded notch surface that converts a moment across

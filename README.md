@@ -20,6 +20,9 @@ where the meeting is being arranged.
   soft orange morning, golden midday, soft purple evening — and every
   result row's time is tinted with its city's local part of day, so day and
   night read at a glance.
+- **Dot-matrix theme:** the grid button in the header flips the display
+  surfaces to a glowing flip-disc panel — amber labels, ruler numbers, the
+  date, and each city's time in its day color. It persists between uses.
 - **Query field:** time first (“3pm”, “15:00”, “9.30am”, “noon”), then a
   zone if the current source isn't the one you mean (“3pm Tokyo”). Day words
   work too: “today”, “tomorrow”, weekday names, “next monday”. A line under

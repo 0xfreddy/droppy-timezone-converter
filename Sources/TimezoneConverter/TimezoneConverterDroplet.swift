@@ -73,6 +73,11 @@ public final class TimezoneConverterDroplet: NSObject, ObservableObject, Droplet
     /// than in the view because the surface's height follows it.
     @Published var isEditingZones = false
 
+    /// Whether the display surfaces render in the dot-matrix theme. The
+    /// interaction surfaces (query field, editor, buttons) stay in system
+    /// type either way — a panel you type into is not a panel.
+    @Published private(set) var isDotMatrix = false
+
     // MARK: Lifecycle
 
     public func activate(host: DropletHost) throws {
@@ -82,6 +87,7 @@ public final class TimezoneConverterDroplet: NSObject, ObservableObject, Droplet
             ?? TimeZone.current.identifier
         zones = host.preferences.value(forKey: "zones", as: [ZoneEntry].self)
             ?? Self.defaultZones
+        isDotMatrix = host.preferences.value(forKey: "dotMatrix", as: Bool.self) ?? false
 
         // Open on now, in the source zone: the surface is a world clock until
         // the user moves the time, which is also the most common conversion.
@@ -244,6 +250,12 @@ public final class TimezoneConverterDroplet: NSObject, ObservableObject, Droplet
     /// The neutral step cue, one per ruler block.
     func playTick() {
         host?.feedback.play(.tick)
+    }
+
+    /// Flips between the classic and dot-matrix themes.
+    func toggleTheme() {
+        isDotMatrix.toggle()
+        host?.preferences.setValue(isDotMatrix, forKey: "dotMatrix")
     }
 
     /// The display label for an identifier: the city for IANA zones, a

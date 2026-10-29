@@ -33,6 +33,9 @@ struct RulerPicker: View {
     /// When set, each tick is painted with this per-value color — the hour
     /// ruler's day gradient. Nil leaves the neutral surface tones.
     var palette: ((Int) -> Color)?
+    /// Render the tick labels in the dot-matrix panel face (the theme's
+    /// display font) instead of system type.
+    var dotLabels = false
     /// Fired once per block the user moves the selection — the caller's cue
     /// to tick.
     var onStep: (() -> Void)?
@@ -127,16 +130,28 @@ struct RulerPicker: View {
                 .frame(width: 1.5, height: isMajor(value) ? 17 : 10)
 
             if isLabeled(value) {
-                Text(String(format: "%02d", value))
-                    .font(.system(size: 9, weight: isSelected ? .semibold : .regular))
-                    .monospacedDigit()
-                    .foregroundStyle(
-                        isSelected
-                            ? paint
-                            : paint.opacity(falloff * 0.8)
-                    )
-                    .fixedSize()
-                    .offset(y: 21)
+                Group {
+                    if dotLabels {
+                        DotMatrixText(
+                            text: String(format: "%02d", value),
+                            color: isSelected
+                                ? (palette?(value) ?? DotMatrixText.amber)
+                                : DotMatrixText.amber.opacity(isSelected ? 1 : 0.55),
+                            pitch: 1.15
+                        )
+                    } else {
+                        Text(String(format: "%02d", value))
+                            .font(.system(size: 9, weight: isSelected ? .semibold : .regular))
+                            .monospacedDigit()
+                            .foregroundStyle(
+                                isSelected
+                                    ? AdaptiveColors.notchSurfacePrimaryText
+                                    : AdaptiveColors.notchSurfaceTertiaryText.opacity(falloff)
+                            )
+                    }
+                }
+                .fixedSize()
+                .offset(y: 21)
             }
         }
         .frame(width: 14, height: 32, alignment: .top)

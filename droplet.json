@@ -1,7 +1,7 @@
 {
   "id": "timezone-converter",
   "name": "Timezone Converter",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "summary": "One moment, every timezone you keep",
   "description": "Timezone Converter turns one moment into every timezone you care about. Type it the way you say it — “3pm New York”, “tomorrow 9:30 Berlin”, “mon 10 utc+5” — or pick it, and read it in each of your zones at once, with the day shift and the offset from your source zone on every row.\n\nKeep a zone list for the people you schedule with; open on the current time, so it doubles as a world clock until you move the moment. Copy any row straight to the pasteboard for the chat where the meeting is being arranged.",
   "category": "Productivity",
